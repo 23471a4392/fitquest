@@ -46,7 +46,7 @@ export function getRealtimeCoachMessage(
   healthyCount: number,
   junkCount: number,
   energy: number,
-  health: number
+  _health: number
 ): CoachPrompt {
   if (energy < 25) return COACH_TRIGGERS[1];
   if (junkCount >= 4) return COACH_TRIGGERS[0];

@@ -1,10 +1,9 @@
-import { COMPREHENSIVE_FRUITS, DetailedFoodItem } from './fruits';
-import { COMPREHENSIVE_VEGETABLES, VegetableItem } from './vegetables';
-import { COMPREHENSIVE_PROTEINS, ProteinItem } from './proteins';
-import { COMPREHENSIVE_GRAINS, GrainItem } from './grains';
-import { COMPREHENSIVE_JUNK_FOODS, JunkFoodItem } from './junkFoods';
-import { COMPREHENSIVE_BEVERAGES, BeverageItem } from './beverages';
-import { COMPREHENSIVE_SUPPLEMENTS, SupplementItem } from './supplements';
+import { COMPREHENSIVE_FRUITS } from './fruits';
+import { COMPREHENSIVE_VEGETABLES } from './vegetables';
+import { COMPREHENSIVE_PROTEINS } from './proteins';
+import { COMPREHENSIVE_GRAINS } from './grains';
+import { COMPREHENSIVE_JUNK_FOODS } from './junkFoods';
+import { COMPREHENSIVE_BEVERAGES } from './beverages';
 
 export * from './fruits';
 export * from './vegetables';

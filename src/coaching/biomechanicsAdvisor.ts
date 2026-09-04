@@ -5,7 +5,7 @@ export interface RunningFormEvaluation {
   keyFormCues: string[];
 }
 
-export function getFormCuesForPace(paceMinKm: number): RunningFormEvaluation {
+export function getFormCuesForPace(_paceMinKm: number): RunningFormEvaluation {
   return {
     optimalCadenceRangeSpm: '174 - 182 SPM',
     footstrikeRecommendation: 'Midfoot landing with contact point directly below the center of mass',

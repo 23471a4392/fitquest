@@ -7,10 +7,12 @@ export interface WorkoutStep {
   instructions: string;
 }
 
+export type WorkoutCategory = 'recovery' | 'base' | 'tempo' | 'intervals' | 'long_run' | 'hills';
+
 export interface GeneratedWorkout {
   id: string;
   title: string;
-  category: 'recovery' | 'base' | 'tempo' | 'intervals' | 'long_run' | 'hills';
+  category: WorkoutCategory;
   totalDurationMinutes: number;
   estimatedDistanceKm: number;
   difficultyScore: number;
@@ -27,7 +29,7 @@ export function generatePersonalizedWorkout(
   targetType: 'endurance' | 'speed' | 'fat_burn' | 'recovery'
 ): GeneratedWorkout {
   let title = 'Aerobic Base Run';
-  let cat: 'recovery' | 'base' | 'tempo' | 'intervals' | 'long_run' | 'hills' = 'base';
+  let cat: WorkoutCategory = 'base';
   let duration = 40;
   let dist = 5.0;
 
@@ -41,12 +43,21 @@ export function generatePersonalizedWorkout(
     cat = 'intervals';
     duration = 50;
     dist = 7.0;
+  } else if (targetType === 'fat_burn') {
+    title = 'Lactate Threshold Tempo Run';
+    cat = 'tempo';
+    duration = 45;
+    dist = 6.0;
   } else if (goalDistanceKm >= 10) {
     title = 'Progressive Long Run';
     cat = 'long_run';
     duration = 75;
     dist = 12.0;
   }
+
+  let targetHRZone: 1 | 2 | 3 | 4 | 5 = 2;
+  if (cat === 'intervals') targetHRZone = 4;
+  else if (cat === 'tempo') targetHRZone = 3;
 
   return {
     id: 'wo_' + Date.now(),
@@ -77,7 +88,7 @@ export function generatePersonalizedWorkout(
         name: 'Target Pace Running Block',
         durationMinutes: duration - 20,
         distanceMeters: dist * 1000 * 0.7,
-        targetHeartRateZone: cat === 'intervals' ? 4 : cat === 'tempo' ? 3 : 2,
+        targetHeartRateZone: targetHRZone,
         targetPaceDescription: cat === 'intervals' ? '5K Race Pace' : 'Aerobic Endurance Pace',
         instructions: 'Maintain upright posture, quick 175-180 spm cadence, and relaxed shoulders.',
       },

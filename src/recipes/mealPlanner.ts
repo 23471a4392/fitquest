@@ -1,4 +1,5 @@
-import { ATHLETIC_RECIPES, Recipe } from './recipeDatabase';
+import { ATHLETIC_RECIPES } from './recipeDatabase';
+import type { Recipe } from './recipeDatabase';
 
 export interface DailyMealPlan {
   dayName: string;

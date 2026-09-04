@@ -1,4 +1,4 @@
-import { LeaderboardEntry, LifetimeStats, PlayerProfile } from '../types/game';
+import type { LeaderboardEntry, LifetimeStats, PlayerProfile } from '../types/game';
 
 export function exportAthleteDataAsJSON(
   player: PlayerProfile | null,
@@ -16,7 +16,7 @@ export function exportAthleteDataAsJSON(
 }
 
 export function exportLeaderboardAsCSV(leaderboard: LeaderboardEntry[]): string {
-  const header = 'Rank,Player,Score,BMIDelta,HealthyChoices,JunkChoices,DistanceMeters,Grade,Date,Level\n';
+  const header = 'Rank,Player,Score,BMIDelta,HealthyChoices,JunkChoices,DistanceMeters,Grade,Date,Level\\n';
   const rows = leaderboard.map((e, i) => {
     return [
       i + 1,
@@ -30,6 +30,6 @@ export function exportLeaderboardAsCSV(leaderboard: LeaderboardEntry[]): string 
       e.date,
       '"' + e.levelName + '"'
     ].join(',');
-  }).join('\n');
+  }).join('\\n');
   return header + rows;
 }

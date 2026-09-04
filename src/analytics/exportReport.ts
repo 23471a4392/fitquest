@@ -1,4 +1,4 @@
-import { GameSummary } from '../types/game';
+import type { GameSummary } from '../types/game';
 
 export function generateAthleteReportCard(summary: GameSummary): string {
   return [

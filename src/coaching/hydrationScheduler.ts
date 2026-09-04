@@ -5,7 +5,7 @@ export interface HydrationSlot {
   instructions: string;
 }
 
-export function generateDailyHydrationSchedule(workoutHour = 7): HydrationSlot[] {
+export function generateDailyHydrationSchedule(_workoutHour = 7): HydrationSlot[] {
   return [
     { time: '06:30 (Wake-up)', volumeMl: 500, type: 'Water + Pinch of Sea Salt', instructions: 'Rehydrate overnight respiratory fluid deficit.' },
     { time: '07:00 - 08:00 (Run)', volumeMl: 500, type: 'Isotonic Electrolyte Drink', instructions: 'Sip 125ml every 15 minutes during training.' },

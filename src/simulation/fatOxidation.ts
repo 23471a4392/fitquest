@@ -5,7 +5,7 @@ export interface FatMaxCurvePoint {
   totalEnergyKcalPerMinute: number;
 }
 
-export function generateFatMaxCurve(weightKg: number): FatMaxCurvePoint[] {
+export function generateFatMaxCurve(_weightKg: number): FatMaxCurvePoint[] {
   const points: FatMaxCurvePoint[] = [];
   // FatMax typically peaks around 55-65% VO2 Max
   for (let pct = 30; pct <= 95; pct += 5) {
